@@ -1,0 +1,75 @@
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 10;
+    & > * {
+        color: white;
+        letter-spacing: 3px;
+        height: 100%;
+        display: flex;
+        font-size: 20px;
+        align-items: center;
+    }
+}
+.toolbar *:hover {
+    color: #0af;
+    cursor: pointer;
+    user-select: none;
+    font-style: italic;
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) scale(2);
+    }
+    to {
+        transform: rotate(360deg) scale(1);
+    }
+}
+.example-card {
+    width: 100%;
+    .mat-card-head {
+        display: flex;
+        align-items: center;
+    }
+    .example-header-image {
+        background-image: url("../assets/profile.jpg");
+        background-size: cover;
+        height: 150px;
+        width: 150px;
+    }
+}
+
+.row > * {
+    padding: 0;
+}
+.tab {
+    background-image: linear-gradient(to right, #0af, #0aaa);
+    color: #000111;
+}
+details[open] summary ~ * {
+    animation: sweep 1s ease-in-out;
+}
+details summary::marker {
+    color: #00011190;
+}
+details summary {
+    font-size: 20px;
+    & + div {
+        font-size: 20px;
+    }
+}
+@keyframes sweep {
+    from {
+        font-size: 5px;
+    }
+    to {
+        font-size: 20px;
+    }
+}
+.btn-free:hover {
+    background-color: #00011129;
+}

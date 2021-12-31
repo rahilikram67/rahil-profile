@@ -1,0 +1,98 @@
+<mat-toolbar class="d-none d-md-block">
+    <mat-toolbar-row class="toolbar bg-dark">
+        <span (click)="swipeTo('skills')">Skills</span>
+        <span (click)="swipeTo('freelance')">Freelance</span>
+        <span (click)="swipeTo('contact')">Contact</span>
+        <span (click)="swipeTo('follow')">Follow ME</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-8 bg-light text-center order-last order-md-first">
+            <div class="col-xl-8 mx-auto">
+                <mat-card class="border rounded my-5" id="skills">
+                    <mat-card-header>
+                        <span class="display-4  mx-auto fw-bolder">Skills</span>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <button mat-flat-button *ngFor="let v of skills" (click)="colorBorder(actualId(v))"
+                            [id]="actualId(v)" class="my-auto py-2 mx-1">
+                            <img width="100" height="100" [src]="v" draggable="false">
+                        </button>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <mat-card-title class="text-start">Experience</mat-card-title>
+                        <div class="d-flex align-items-center justify-content-center" style="height: 20px;">
+                            <progress [value]="exp_points/100" class="w-100 h-100"></progress>
+                            <div class="h6 align-self-center my-2 mx-2">{{exp_points}}%</div>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            <div class="col-xl-8 mx-auto">
+                <mat-card class="border rounded my-5" id="freelance">
+                    <mat-card-header>
+                        <span class="display-4  mx-auto fw-bolder">Freelance</span>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <a target="_blank" href="https://www.fiverr.com/rahil_ikram_" mat-flat-button class="btn-free">
+                            <img src="assets/fiverr.png" width="200" height="130" alt="">
+                        </a>
+                        <a target="_blank" href="https://www.upwork.com/freelancers/~01208cc515c1264744" mat-flat-button
+                            class="btn-free">
+                            <img src="assets/upwork.png" width="200" height="130" alt="">
+                        </a>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-xl-8 mx-auto">
+                <mat-card class="border rounded my-5" id="contact">
+                    <mat-card-header>
+                        <span class="display-4  mx-auto fw-bolder">Contact</span>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <a href="mailto:rahil.ikram67@gmail.com" mat-flat-button class="btn-free h-100">
+                            <img src="assets/gmail.png" width="200" height="130" alt="">
+                        </a>
+                        <a href="tel:+923088212344" mat-flat-button class="btn-free h-100">
+                            <img src="assets/call.png" width="180" height="130" alt="">
+                        </a>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-xl-8 mx-auto">
+                <mat-card class="border rounded my-5" id="follow">
+                    <mat-card-header>
+                        <span class="display-4  mx-auto fw-bolder">Follow ME</span>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <a *ngFor="let v of contact" target="_blank" [href]="v.url" mat-flat-button class="btn-free">
+                            <img [src]="v.icon" class="mt-2" width="100" height="100" alt="">
+                        </a>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div class="col-xl-4 text-start order-first order-md-last">
+            <mat-card class="example-card">
+                <mat-card-header class="mat-card-head">
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title class="fs-1">Rahil Ikram</mat-card-title>
+                    <mat-card-subtitle class="fs-4 mt-2">Developer</mat-card-subtitle>
+                </mat-card-header>
+                <mat-divider class="my-2"></mat-divider>
+                <mat-card-content class="mt-4 w-100">
+                    <details open class="w-auto ml-5 pe-none" *ngFor="let v of personal">
+                        <summary class="text-primary user-select-none text-start">{{v.title}}</summary>
+                        <div class="my-1 bg-primary text-white h4 rounded text-center">{{v.value}}</div>
+                    </details>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button (click)="share()">
+                        <img src="assets/share.svg" alt="">
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
